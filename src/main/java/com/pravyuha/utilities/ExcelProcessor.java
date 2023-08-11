@@ -1,6 +1,5 @@
 package com.pravyuha.utilities;
 
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import org.apache.poi.ss.usermodel.*;
@@ -16,9 +15,9 @@ public class ExcelProcessor {
             Workbook workbook = new XSSFWorkbook(fileInputStream);
             Sheet sheet = workbook.getSheetAt(0); // read the first sheet
 
-            // Finding the column index according to heading
+            // to find column index according to heading
             int columnIndex = -1;
-            Row headerRow = sheet.getRow(0); // As heading will be in the first row
+            Row headerRow = sheet.getRow(0); // As heading will be in the first row considered header row
             for (Cell cell : headerRow) {
                 if (cell.getStringCellValue().equalsIgnoreCase(heading)) {
                     columnIndex = cell.getColumnIndex();
@@ -29,6 +28,7 @@ public class ExcelProcessor {
             if (columnIndex != -1) {
                 // Loop through the rows in the sheet (skipping header row)
                 for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
+                    //extracting info from row
                     Row row = sheet.getRow(rowIndex);
                     if (row != null) {
                         Cell cell = row.getCell(columnIndex);
@@ -50,7 +50,7 @@ public class ExcelProcessor {
 
         return rowDataList;
     }
-
+// row data is used to store value
     public static class RowData {
         private String value1;
 

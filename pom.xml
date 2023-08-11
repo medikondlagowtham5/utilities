@@ -47,7 +47,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- org.reactivecommons:object-mapper dependency -->
+        <!-- org.reactive commons:object-mapper dependency -->
         <dependency>
             <groupId>org.reactivecommons</groupId>
             <artifactId>object-mapper</artifactId>

@@ -15,11 +15,11 @@ public class JSONProcessor {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         try {
-            //deserialize
+            //deserializing
             ObjectNode rootNode = (ObjectNode) objectMapper.readTree(inputFile);
 
 
-            // modify
+            // manipulating data
             ArrayNode advSetArray = (ArrayNode) rootNode.path("advSet");
             if (advSetArray.isArray()) {
                 for (JsonNode advSetItem : advSetArray) {
@@ -33,7 +33,7 @@ public class JSONProcessor {
 
                 }
 
-                // Serialize
+                // Serializing
 
                 String filename = convertToASCII(value);
                 String outputFileName = "D:\\Pv\\" + filename + ".json";
@@ -48,6 +48,7 @@ public class JSONProcessor {
             e.printStackTrace();
         }
     }
+    //To find if number is present in data
     private static boolean isNumeric(String str) {
         return str != null && str.matches("\\d+");
     }

@@ -23,6 +23,7 @@ public class IOTConfigTool {
             JSONProcessor.generateJsonFile(value); // Generate JSON file with value as data
         }
     }
+
     private static String convertToHex(String asciiText) {
 
         StringBuilder hexValue = new StringBuilder();
